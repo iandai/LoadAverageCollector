@@ -6,7 +6,7 @@ class Log
     db = SQLite3::Database.new "log/average_load.db"  
     setup_table(db) if !table_exist?(db, "logs")
     
-    time = Time.now.to_s
+    time = Time.now.strftime("%Y-%m-%d %H:%M:%S").to_s
     db.execute "insert into logs values ( ?, ?, ?, ? )", time, row[:la1min], row[:la5min], row[:la15min]    
   end
   

@@ -1,0 +1,38 @@
+<html>
+  <head>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+				
+				// get data			
+				var $json_data = $.ajax({
+				    type: 'GET',
+				    url: 'http://localhost:8080',
+				    dataType: 'json',
+				    async: false
+				}).responseText;
+				
+				$data = $.parseJSON($json_data);
+				
+				// start google jsapi
+	      google.load("visualization", "1", {packages:["corechart"]});
+	      google.setOnLoadCallback(drawChart);
+				
+	      function drawChart( ) {
+				    $d.unshift(['Time', '1min', '5mins', '15mins']);
+			    	var data = new google.visualization.arrayToDataTable( $data );
+						
+	          var options = {
+	            title: 'Load Average'
+	          };
+
+	          var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+	          chart.draw(data, options);
+	      }
+
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
