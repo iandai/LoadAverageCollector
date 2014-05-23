@@ -1,0 +1,4 @@
+remote: tigers
+
+# when load average is over [value], send notification.
+load_average_upper_limit: 0.6
