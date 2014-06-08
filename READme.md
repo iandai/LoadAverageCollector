@@ -1,6 +1,6 @@
 # Simple Load Average Collector
 
-A simple tool to: 
+A tool to: 
 * collect server load average info over a period of time
 * notify when load average is high (OSX only) 
 * view load average data in line chart
@@ -20,7 +20,6 @@ A simple tool to:
 
 ## Todo
 
-* rake view should open chart file after server is up.
 * Add support for complex notification rule.
 
 ## License
